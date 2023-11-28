@@ -79,17 +79,6 @@ include './functions/conexion.php';
 
 <br>
 
-<!-- <div class="grid text-center" style="--bs-columns: 4;">
-<div class="contenedor">
-  <div class="card" style="width: 18rem;">
-    <img src="" width="300"> IMAGENES DESHABILITADAS TEMPORALMENTE
-    <div class="card-body">
-      <h5 class="card-title">Resistol</h5>
-      <p class="card-text">$10.</p>
-      <a type="accion.php" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-</div> -->
 
 <div id="products" class="row row-cols-4">
   <?php
@@ -114,13 +103,6 @@ include './functions/conexion.php';
 
 
 <div class="contenedor2">
-<!-- <nav aria-label="Page navigation example"> DESACTIVADO POR PRUEBAS ARRIBA
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="pagina2.php">2</a></li>
-    <li class="page-item"><a class="page-link" href="pagina3.php">3</a></li>
-    <li class="page-item"><a class="page-link" href="pagina2.php">Siguiente</a></li>
-  </ul>
-</nav> -->
 </div>
 </div>
   <!-------------------------------------------------------------------------------------------->
