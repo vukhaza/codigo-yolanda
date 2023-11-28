@@ -1,11 +1,11 @@
 <?php
 date_default_timezone_set("America/Lima");
 
-include 'carrito1.php';
+include './cart.php';
+include './conexion.php';
+
 $cart = new Cart;
 
-
-include 'conexion.php';
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
         $productID = $_REQUEST['id'];
@@ -34,7 +34,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         header("Location: carrito1.php");
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
        
-        $insertOrder = $db->query("INSERT INTO orden (customer_id, total_price, created, modified) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."', '".date("Y-m-d H:i:s")."')");
+        $insertOrder = $db->query("INSERT INTO orden (idUsr, monto, date) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
         
         if($insertOrder){
             $orderID = $db->insert_id;

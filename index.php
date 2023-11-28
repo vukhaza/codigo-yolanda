@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include './functions/conexion.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,7 +14,7 @@ include 'conexion.php';
     <div class="logo">
     <link rel="stylesheet" href="styles.css">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <img src="Captura de pantalla 2023-10-25 230838.png" width="400">
+      <img src="./img/Captura de pantalla 2023-10-25 230838.png" width="400">
 
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,20 +48,20 @@ include 'conexion.php';
       <div class="container">
         <h1>Novedades</h1>
 
-  <!--------------------------------------------carrusel----------------------------------->
+  <!--------------------------------------------carrusel---------------------------------
         <div id="carouselExample" class="carousel slide">
           <nav class="navbar" style="background-color: #e3f2fd;">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="activate">
-                <img src="Calculadora.png"  width="400"    ><h5>  </h5>
+                <img src="./img/Calculadora.png"  width="400"    ><h5>  </h5>
               </div>
               </div>
               <div class="carousel-item">
-                <img src="plumas duo.png"  width="600" ><h5>  </h5>
+                <img src="./img/plumas duo.png"  width="600" ><h5>  </h5>
               </div>
               <div class="carousel-item">
-                <img src="plumes de pisarron.png"  width="650" ><h5> </h5>
+                <img src="./img/plumes de pisarron.png"  width="650" ><h5> </h5>
 
               </div>
             </div>
@@ -75,201 +75,52 @@ include 'conexion.php';
             </button>
           </nav>
           </div>
-<!--------------------------------------------productos----------------------------------------->
+-->
 
-<!--produc1-->
 <br>
 
-<div class="grid text-center" style="--bs-columns: 4;">
+<!-- <div class="grid text-center" style="--bs-columns: 4;">
 <div class="contenedor">
-<div class="card" style="width: 18rem;">
-    <img src="Resistol en barra.jpg" width="300">
+  <div class="card" style="width: 18rem;">
+    <img src="" width="300"> IMAGENES DESHABILITADAS TEMPORALMENTE
     <div class="card-body">
       <h5 class="card-title">Resistol</h5>
       <p class="card-text">$10.</p>
       <a type="accion.php" class="btn btn-primary">Agregar</a>
     </div>
   </div>
-  <!--produc2-->
-  <div class="card" style="width: 18rem;">
-    <img src="Tijeras infantiles.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Tijeras infantiles</h5>
-      <p class="card-text">$20</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
+</div> -->
+
+<div id="products" class="row row-cols-4">
+  <?php
+  $query = $db->query("SELECT * FROM inventario ORDER BY id DESC");
+  if($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+  ?>
+  <div class="p-3">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $row["name"]; ?></h5>
+        <p class="card-text"><?php echo $row["description"] ?></p>
+        <footer class="footer"><?php echo $row["price"]; ?></footer>
+        <a class="btn btn-primary">Agregar al carrito</a>
+      </div>
     </div>
   </div>
-  <!--produc3-->
-  <div class="card" style="width: 18rem;">
-    <img src="Tijeras largas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Tijeras</h5>
-      <p class="card-text">$30</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc4-->
-  <div class="card" style="width: 18rem;">
-    <img src="Hojas Blancas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Paq.Hojas blancas</h5>
-      <p class="card-text">$100</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc5-->
-  <div class="card" style="width: 18rem;">
-    <img src="Hojas de Color.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Paq.Hojas de color</h5>
-      <p class="card-text">$150</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc6-->
-  <div class="card" style="width: 18rem;">
-    <img src="Colores.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Caja de colores</h5>
-      <p class="card-text">$300</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc7--><div class="card" style="width: 18rem;">
-    <img src="Sujetador para hojas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">porta hojas</h5>
-      <p class="card-text">$5</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc8-->
-  <div class="card" style="width: 18rem;">
-    <img src="clips.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Clips </h5>
-      <p class="card-text">$2</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc9-->
-  <div class="card" style="width: 18rem;">
-    <img src="Marcatextos.png" width="200">
-    <div class="card-body">
-      <h5 class="card-title">Marcadores</h5>
-      <p class="card-text">$80</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc10-->
-  <div class="card" style="width: 18rem;">
-    <img src="Mochila de goku.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mochila</h5>
-      <p class="card-text">$600</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc11-->
-  <div class="card" style="width: 18rem;">
-    <img src="Mochilas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mochila</h5>
-      <p class="card-text">$300</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc12-->
-  <div class="card" style="width: 18rem;">
-    <img src="Limpiapipas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Paq.limpiapipas</h5>
-      <p class="card-text">$10</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc13-->
-  <div class="card" style="width: 18rem;">
-    <img src="Lapicera moderna.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lapicera</h5>
-      <p class="card-text">$200</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc14-->
-  <div class="card" style="width: 18rem;">
-    <img src="Lapicera sensilla.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lapicera</h5>
-      <p class="card-text">$50</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc15-->
-  <div class="card" style="width: 18rem;">
-    <img src="Lapiz.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Lapiz</h5>
-      <p class="card-text">$10</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc16-->
-  <div class="card" style="width: 18rem;">
-    <img src="Gomas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Gomas</h5>
-      <p class="card-text">$10</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc17-->
-  <div class="card" style="width: 18rem;">
-    <img src="Silicon.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Silicon</h5>
-      <p class="card-text">$15</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc18-->
-  <div class="card" style="width: 18rem;">
-    <img src="Sacapuntas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Sacapuntas</h5>
-      <p class="card-text">$10</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc19-->
-  <div class="card" style="width: 18rem;">
-    <img src="Papel bon.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Papel</h5>
-      <p class="card-text">$60</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
-  <!--produc20-->
-  <div class="card" style="width: 18rem;">
-    <img src="Libretas.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Libretas</h5>
-      <p class="card-text">$200</p>
-      <a href="#" class="btn btn-primary">Agregar</a>
-    </div>
-  </div>
- 
+  <?php } } else{ ?>
+    <p>Producto(s) no existe...</p>
+  <?php } ?>
 </div>
+
+
 <div class="contenedor2">
-<nav aria-label="Page navigation example">
+<!-- <nav aria-label="Page navigation example"> DESACTIVADO POR PRUEBAS ARRIBA
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="pagina2.php">2</a></li>
     <li class="page-item"><a class="page-link" href="pagina3.php">3</a></li>
     <li class="page-item"><a class="page-link" href="pagina2.php">Siguiente</a></li>
   </ul>
-</nav>
+</nav> -->
 </div>
 </div>
   <!-------------------------------------------------------------------------------------------->
