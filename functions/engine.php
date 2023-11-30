@@ -19,7 +19,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         );
         
         $insertItem = $cart->insert($itemData);
-        $redirectLoc = $insertItem?'carrito1.php':'index.php';
+        $redirectLoc = $insertItem?'../carrito1.php':'../index.php';
         header("Location: ".$redirectLoc);
     }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['id'])){
         $itemData = array(
@@ -30,11 +30,10 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         echo $updateItem?'ok':'err';die;
     }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])){
         $deleteItem = $cart->remove($_REQUEST['id']);
-        header("Location: carrito1.php");
+        header("Location: ../carrito1.php");
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
        
-        //$insertOrder = $db->query("INSERT INTO orden (idUsr, monto, date) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
-        $insertOrder = $db->query("INSER INTO orden (idProd, cantProd, idUsr, monto, date) VALUES('".$orderID."','".$item['qty']."','".$_SESSION['sessCustomerID']."','".$cart->total()."','".date("Y--d H:i:s")."')");
+        $insertOrder = $db->query("INSERT INTO orden (idUsr, monto, date) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
 
         if($insertOrder){
             $orderID = $db->insert_id;
@@ -42,23 +41,23 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             
             $cartItems = $cart->contents();
             foreach($cartItems as $item){
-                $sql .= "INSERT INTO orden_articulos (order_id, product_id, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."');";
+                $sql .= "INSERT INTO ordenArticulos (order_id, product_id, quantity) VALUES ('".$orderID."', '".$item['id']."', '".$item['qty']."');";
             }
             
             $insertOrderItems = $db->multi_query($sql);
             
             if($insertOrderItems){
                 $cart->destroy();
-                header("Location: OrdenExito.php?id=$orderID");
+                header("Location: ../OrdenExito.php?id=$orderID");
             }else{
-                header("Location: Pagos.php");
+                header("Location: ../Pagos.php");
             }
         }else{
-            header("Location: Pagos.php");
+            header("Location: ../Pagos.php");
         }
     }else{
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
 }else{
-    header("Location: index.php");
+    header("Location: ../index.php");
 }

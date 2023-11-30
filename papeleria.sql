@@ -34,13 +34,19 @@ insert into usuario(id,nombres,apellido,correo,numero,contrasena,ubicacion) valu
 -- Tabla orden
 create table if not exists orden(
     id int(8) not null AUTO_INCREMENT, -- Aumenta la id automaticamente en 1
-    idProd int(8) not null, -- FK | number o int
-    cantProd int(5) not null,
     idUsr int(8) not null, -- FK number o int
     monto int(5) not null,
     date datetime not null, 
 
     primary key (id),
-    constraint fkInv foreign key(idProd) references inventario(id),
     constraint fkUsr foreign key(idUsr) references usuario(id)
+);
+
+create table if not exists ordenArticulos(
+    id int(8) not null AUTO_INCREMENT,
+    idOrden int(8) not null,
+    idProd int(8) not null,
+    quantity int(5) not null,
+    primary key (id),
+    constraint fkOrden foreign key(idOrden) references orden(id)
 );

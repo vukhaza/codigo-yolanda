@@ -48,41 +48,13 @@ include './functions/conexion.php';
       <div class="container">
         <h1>Novedades</h1>
 
-  <!--------------------------------------------carrusel---------------------------------
-        <div id="carouselExample" class="carousel slide">
-          <nav class="navbar" style="background-color: #e3f2fd;">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="activate">
-                <img src="./img/Calculadora.png"  width="400"    ><h5>  </h5>
-              </div>
-              </div>
-              <div class="carousel-item">
-                <img src="./img/plumas duo.png"  width="600" ><h5>  </h5>
-              </div>
-              <div class="carousel-item">
-                <img src="./img/plumes de pisarron.png"  width="650" ><h5> </h5>
-
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </nav>
-          </div>
--->
 
 <br>
 
 
 <div id="products" class="row row-cols-4">
   <?php
-  $query = $db->query("SELECT * FROM inventario ORDER BY id DESC");
+  $query = $db->query("SELECT * FROM inventario");
   if($query->num_rows > 0){
     while($row = $query->fetch_assoc()){
   ?>
@@ -92,7 +64,7 @@ include './functions/conexion.php';
         <h5 class="card-title"><?php echo $row["name"]; ?></h5>
         <p class="card-text"><?php echo $row["description"] ?></p>
         <footer class="footer"><?php echo $row["price"]; ?></footer>
-        <a class="btn btn-primary">Agregar al carrito</a>
+        <a class="btn btn-primary" href="functions/engine.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
       </div>
     </div>
   </div>
