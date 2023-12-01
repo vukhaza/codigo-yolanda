@@ -56,7 +56,7 @@ $cart = new Cart;
     </thead>
     <tbody>
         <?php
-        if($cart->total_items() > 0){
+        if($cart->totalItems() > 0){
             
             $cartItems = $cart->contents();
             foreach($cartItems as $item){
