@@ -1,5 +1,5 @@
 <?php
-include './functions/conexion.php';
+include 'conexion.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,8 +31,8 @@ include './functions/conexion.php';
                 </a>
                 <ul class="dropdown-menu">
         
-                  <li><a class="dropdown-item" href="./login.php">login</a></li>
-                  <li><a class="dropdown-item" href="./carrito1.php">carrito</a></li>
+                  <li><a class="dropdown-item" href="login.php">login</a></li>
+                  <li><a class="dropdown-item" href="carrito1.php">carrito</a></li>
               
                 </ul>
               </li>
@@ -64,7 +64,7 @@ include './functions/conexion.php';
         <h5 class="card-title"><?php echo $row["name"]; ?></h5>
         <p class="card-text"><?php echo $row["description"] ?></p>
         <footer class="footer"><?php echo $row["price"]; ?></footer>
-        <a class="btn btn-primary" href="functions/engine.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
+        <a class="btn btn-primary" href="engine.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
       </div>
     </div>
   </div>

@@ -134,8 +134,4 @@ class Cart {
 		unset($_SESSION['cartContents']);
 	}
 }
-
-
-
-
 ?>

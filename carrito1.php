@@ -1,6 +1,6 @@
 <?php
 
-include './functions/cart.php';
+include 'cart.php';
 $cart = new Cart;
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $cart = new Cart;
     </style>
     <script>
     function updateCartItem(obj,id){
-        $.get("./functions/engine.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
+        $.get("engine.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
             if(data == 'ok'){
                 location.reload();
             }else{
@@ -67,7 +67,7 @@ $cart = new Cart;
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].'MX'; ?></td>
             <td>
-                <a href="./functions/engine.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="engine.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
         <?php } }else{ ?>

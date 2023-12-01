@@ -1,9 +1,6 @@
 <?php
-
-include './functions/conexion.php';
-
-
-include './functions/cart.php';
+include 'conexion.php';
+include 'cart.php';
 $cart = new Cart;
 
 
@@ -92,7 +89,7 @@ $custRow = $query->fetch_assoc();
     </div>
     <div class="footBtn">
         <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
-        <a href="./functions/engine.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
+        <a href="engine.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
     </div>
         </div>
  <div class="panel-footer">carrito</div>

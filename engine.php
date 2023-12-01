@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("America/Lima");
-include './cart.php';
-include './conexion.php';
+include 'cart.php';
+include 'conexion.php';
 
 $cart = new Cart;
 
@@ -9,7 +9,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     if($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['id'])){
         $productID = $_REQUEST['id'];
        
-        $query = $db->query("SELECT * FROM productos WHERE id = ".$productID);
+        $query = $db->query("SELECT * FROM inventario WHERE id = ".$productID);
         $row = $query->fetch_assoc();
         $itemData = array(
             'id' => $row['id'],
@@ -19,8 +19,10 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         );
         
         $insertItem = $cart->insert($itemData);
-        $redirectLoc = $insertItem?'../carrito1.php':'../index.php';
+        $redirectLoc = $insertItem?'carrito1.php':'index.php';
         header("Location: ".$redirectLoc);
+
+
     }elseif($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['id'])){
         $itemData = array(
             'rowid' => $_REQUEST['id'],
@@ -28,13 +30,15 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
         );
         $updateItem = $cart->update($itemData);
         echo $updateItem?'ok':'err';die;
+
+
     }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['id'])){
         $deleteItem = $cart->remove($_REQUEST['id']);
-        header("Location: ../carrito1.php");
-    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
-       
-        $insertOrder = $db->query("INSERT INTO orden (idUsr, monto, date) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
+        header("Location: carrito1.php");
 
+
+    }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){       
+        $insertOrder = $db->query("INSERT INTO orden (idUsr, monto, date) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
         if($insertOrder){
             $orderID = $db->insert_id;
             $sql = '';
@@ -48,16 +52,16 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
             
             if($insertOrderItems){
                 $cart->destroy();
-                header("Location: ../OrdenExito.php?id=$orderID");
+                header("Location: OrdenExito.php?id=$orderID");
             }else{
-                header("Location: ../Pagos.php");
+                header("Location: Pagos.php");
             }
         }else{
-            header("Location: ../Pagos.php");
+            header("Location: Pagos.php");
         }
     }else{
-        header("Location: ../index.php");
+        header("Location: index.php");
     }
 }else{
-    header("Location: ../index.php");
+    header("Location: index.php");
 }
