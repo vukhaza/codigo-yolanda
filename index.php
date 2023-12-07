@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Barra de navegacion AUN NO TERMINAS LOS DETALLES DEL CONTAINER DE LA BARRA SUPERIOR NI VENTANA DE CATEGORIAS-->
+    <!-- Barra de navegacion -->
     <header>
         <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -28,7 +28,7 @@
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
-                <button type="button" class="btn btn-outline-dark btn-lg">Carrito</button>
+                <a type="button" class="btn btn-outline-dark btn-lg" href="VerCarta.php">Carrito</a>
             </div>
         </nav>
     </header>
@@ -86,7 +86,7 @@
                                 <h5 class="card-title"><?php echo $row["name"]; ?></h5>
                                 <p class="card-text"><?php echo $row["description"] ?></p>
                                 <footer class="footer"><?php echo $row["price"]; ?></footer>
-                                <a class="btn btn-success" href="engine.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
+                                <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                         <h5 class="card-title"><?php echo $row["name"]; ?></h5>
                         <p class="card-text"><?php echo $row["description"] ?></p>
                         <footer class="footer"><?php echo $row["price"]; ?></footer>
-                        <a class="btn btn-success" href="engine.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
+                        <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar al carrito</a>
                     </div>
                 </div>
             </div>
