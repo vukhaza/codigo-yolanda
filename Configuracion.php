@@ -1,8 +1,8 @@
 <?php
-// Estos parametros se modifican dependiendo de el dispositivo donde se registre.
+
 $dbHost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'b4k3dp0t4t0'; //esta contra es solo de mi laptop (jose) en caso se cargar el sistema en otra, debe cambiarse
+$dbPassword = 'b4k3dp0t4t0';
 $dbName = 'papeleria';
 
 

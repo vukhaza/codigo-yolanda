@@ -30,7 +30,7 @@
     <div class="container">
         <div class="pt-5">
         <div class="card mx-auto" style="width: 18rem;">
-            <div class="card-header text-center">Inicio de sesion</div>
+            <div class="card-header text-center">Registro</div>
             <div class="card-body">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Correo</label>
@@ -39,9 +39,27 @@
                 <div class="mb-3">
                     <label for="inputPassword5" class="form-label">Contraseña</label>
                     <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Contraseña">
+                    <label for="inputPassword5" class="form-label pt-1">Confirmar contraseña</label>
+                    <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Confirmar contraseña">
                 </div>
-                <a type="button" class="btn btn-success ">Iniciar Sesion</a>
-                <p class="pt-3">No tiene cuenta? <a class="link" href="register.php">Registrese</a></p>
+                <hr>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre(s)</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nombre(s)">
+                    <label for="exampleFormControlInput1" class="form-label pt-1">Apellidos</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Apellidos">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Numero</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Numero">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Direccion</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
+                </div>
+                <hr>
+                <a type="button" class="btn btn-success ">Registrarse</a>
+                <p class="pt-3">Ya cuenta? <a class="link" href="login.php">Inicie sesion</a></p>
             </div>
         </div>
         </div>
