@@ -28,26 +28,44 @@ $cart = new Cart;
         });
     }
     </script>
+
+<style>
+        #fondo{
+        background-color: #e6f0f7 ;    
+        }
+
+        #boton{
+        background-color:#84A9C4 ;
+        border: black;
+        color: black;
+        }
+
+        #barra{
+        background-color:#447191;
+        }
+
+</style>
+
 </head>
 <body>
     <!-- Barra de navegacion -->
     <header>
         <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
+            <div class="container-fluid" id="barra">
                 <a class="navbar-brand" href="index.php">El Baulito</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"     > 
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <hr class="d-lg-none text-white-50">
                 <div class="container-fluid">
                 </div>
-                <a type="button" class="btn btn-outline-dark btn-lg" href="VerCarta.php">Carrito</a>
+                <a type="button" class="btn btn-outline-dark btn-lg" href="VerCarta.php" id="boton">Carrito</a>
             </div>
         </nav>
     </header>
 
     <!-- Productos en carrito -->
-    <div class="container">
+    <div class="container" id="fondo">
         <div class="vstack gap-3 pt-4">
             <div class="p-2">
                 <h3>Carrito</h3>
@@ -87,11 +105,11 @@ $cart = new Cart;
             </tbody>
             <tfoot>
                 <tr>
-                    <td><a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a></td>
+                    <td><a href="index.php" class="btn btn-warning" id="boton"><i class="glyphicon glyphicon-menu-left" ></i> Continue Comprando</a></td>
                     <td colspan="2"></td>
                     <?php if($cart->total_items() > 0){ ?>
                     <td class="text-center"><strong>Total <?php echo '$'.$cart->total().'MX'; ?></strong></td>
-                    <td><a href="Pagos.php" class="btn btn-success btn-block">Pagos <i class="glyphicon glyphicon-menu-right"></i></a></td>
+                    <td><a href="Pagos.php" class="btn btn-success btn-block" id="boton">Pagos <i class="glyphicon glyphicon-menu-right"></i></a></td>
                     <?php } ?>
                 </tr>
             </tfoot>

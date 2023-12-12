@@ -11,12 +11,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        #body{
+            background-color:  #447191;
+        }
+
+        #caja{
+            background-color: #84A9C4;
+            border: black;
+        }
+        
+        #barra{
+        background-color: #84A9C4;
+        }
+
+        #boton{
+        background-color: #447191;
+        border: black;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Barra de navegacion AUN NO TERMINAS LOS DETALLES DEL CONTAINER DE LA BARRA SUPERIOR NI VENTANA DE CATEGORIAS-->
     <header>
             <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
+                <div class="container-fluid" id="barra">
                     <!-- Nombre e logo (logo falta por agregar) -->
                     <a class="navbar-brand" href="index.php">El Baulito</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,13 +48,13 @@
     </header>
 
     <!-- Contenido -->
-    <div class="container">
+    <div class="container" id="body">
         <div class="pt-5">
         <div class="card mx-auto" style="width: 18rem;">
-            <div class="card-header text-center">Registro</div>
-            <div class="card-body">
+            <div class="card-header text-center" id="caja">Registro</div>
+            <div class="card-body" id="caja">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Correo</label>
+                    <label for="exampleFormControlInput1" class="form-label" >Correo</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ejemplo@correo.com">
                 </div>
                 <div class="mb-3">
@@ -58,8 +79,8 @@
                     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Direccion">
                 </div>
                 <hr>
-                <a type="button" class="btn btn-success ">Registrarse</a>
-                <p class="pt-3">Ya cuenta? <a class="link" href="login.php">Inicie sesion</a></p>
+                <a type="button" class="btn btn-success" id="boton">Registrarse</a>
+                <p class="pt-3">Ya tiene una cuenta? <a class="link" href="login.php">Inicie sesion</a></p>
             </div>
         </div>
         </div>
