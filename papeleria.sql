@@ -11,11 +11,6 @@ CREATE TABLE IF NOT EXISTS inventario(
 );
     --'stock' int(5) not null,  desactivado por que aun no existe un modo de agregar o eliminar existencias
 
-insert into inventario(name, description, price) values
-('artTest1', 'Este articulo es solo un articulo de prueba1', 11.99),
-('artTest2', 'Este articulo es solo un articulo de prueba2', 12.99),
-('artTest3', 'Este articulo es solo un articulo de prueba3', 13.99);
-
 -- Tabla Usuario
 create table if not exists usuario(
     id int(8) not null AUTO_INCREMENT, -- Aumenta automaticamente en 1
@@ -27,9 +22,6 @@ create table if not exists usuario(
     ubicacion varchar(80) not null, 
     PRIMARY KEY (id)
 );
-
-insert into usuario(id,nombres,apellido,correo,numero,contrasena,ubicacion) values
-(1, 'usrTest', 'testUsr', 'test@user.com', '000111222', 'test', 'testUbication');
 
 -- Tabla orden
 create table if not exists orden(
