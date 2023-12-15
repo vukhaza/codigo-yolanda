@@ -2,7 +2,7 @@
 
 $dbHost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'b4k3dp0t4t0';
+$dbPassword = '';
 $dbName = 'papeleria';
 
 
